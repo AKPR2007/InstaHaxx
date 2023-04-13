@@ -1,15 +1,14 @@
 # InstaHaxx
 
 
-This program will brute force any Instagram account.
+this software will brute force any Instagram account.
 
-### Support
 
-It
+## Tutorial
 
-## Requirements
+### Requirements
 
-- Python v3.9 or higher
+- python v3.9 or higher
 - working proxy list
 
 ### Install (Manual Way)
@@ -22,10 +21,16 @@ pipenv --python 3.9
 pipenv install
 ```
 
+### Usage
+
+```
+python instahaxx.py -u <username> -p <passlist>
+```
+
 ## Help (-h/h flag output)
 
 ```
-usage: main.py [-h] [-u USERNAME] [-p PASSLIST] [-px PROXYLIST] [--prune PRUNE] [--stats] [-nc] [-m MODE]
+usage: instahaxx.py [-h] [-u USERNAME] [-p PASSLIST] [-px PROXYLIST] [--prune PRUNE] [--stats] [-nc] [-m MODE]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -43,15 +48,17 @@ optional arguments:
 
 ## Proxies
 
-The system needs a list of proxies to work. Once uploaded, proxies are saved into a database
+the system needs a list of proxies to work. proxies are saved into a database by uploading
 
 ### Upload
 
-Upload a list of proxies into the program. The proxy file must have a format of `ip:port`
+Upload a list of proxies into the program. the proxy file must have a format of `ip:port`
 
-`proxies_list.txt`
+```
+python main.py -px <path to proxy list>
+```
 
-To upload a list of proxies a similar syntax must be followed.
+#### Example
 
 ```
 3.238.111.248:80
@@ -62,34 +69,18 @@ To upload a list of proxies a similar syntax must be followed.
 180.92.194.235:80
 ```
 
-```
-python main.py -px <path to proxy list>
-```
-
 ### Stats
 
-This gives an insight into the health of the proxies in the database.
+this gives an insight into the health of the proxies in the database.
 
 ```
-python instagram.py --stats
+python instahaxx.py --stats
 ```
 
 ### Prune
 
-This allows the able to get rid of proxies with a score below a given score.<br/>
-It is recommended that you run the `--stats` and prune the database of proxies<br/>
-who have a proxy score below `Q1`.
-
+this allows the ability to get rid of proxies with a score below a given score. it is recommended that you run the `--stats` and prune the database of proxies. who have a proxy score below `Q1`.
+pruning is not a requirement because the the system will automatically learn which proxies perform poorly and stop using them.
 ```
-python instagram.py --prune 0.05
+python instahaxx.py --prune <score in integer value>
 ```
-
-Pruning is not a requirement because the the system will automatically learn which proxies perform poorly and stop using them.
-
-### Usage
-
-```
-python instagram.py -u <username> -p <passlist>
-```
-
-> Made with ?? by AKPR
